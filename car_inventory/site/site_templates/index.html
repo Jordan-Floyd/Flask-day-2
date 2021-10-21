@@ -1,10 +1,24 @@
 {% extends 'base.html' %}
+
 {% block content %}
+
+{% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+        {% for cat, msg in messages %}
+            {% if cat == 'user-created' or cat == 'auth-success' %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ msg }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
 
 <div class="container">
     <header class="row">
         <div class="col-12 col-md-6" id="header-text">
-            <h2>Welcome to our Auto Dealership!</h2>
+            <h2>Car Collection API</h2>
             <h5>We are number 1 in Customer Service.</h5>
             <div>
                 <button class="btn btn-primary">Documentation</button>
@@ -13,36 +27,36 @@
         </div>
         <!-- Header Image Here -->
         <div class="col-12 col-md-6">
-            <img src="https://via.placeholder.com/150" alt="Placeholder" class="header-image">
+            <img src="https://res.cloudinary.com/dvavaunrm/image/upload/c_scale,h_500,w_500/v1634771603/pexels-gustavo-fring-4173189_ufhtz2.jpg" alt="Placeholder" class="header-image">
         </div>
     </header>
     <!-- Header Section End -->
     <!-- Start of Middle Section -->
     <section class="row">
         <div class="col-12" id="middle-text">
-            <h2>Our Cars On display!</h2>
-            <p>Come in and see them.</p>
+            <h2>Info on most cars!</h2>
+            <p>Come check them out</p>
         </div>
     </section>
     <!-- End of Middle Section -->
     <!-- Start of Features Section -->
     <section class="row" id="features-section">
         <div class="col-12 col-md-4">
-            <img src="https://via.placeholder.com/150" alt="Placeholder" id="api-image">
+            <img src="https://res.cloudinary.com/dvavaunrm/image/upload/c_scale,h_150,w_150/v1634773608/pexels-bethe-observer-5463115_fqnlph.jpg" alt="Placeholder" id="api-image">
             <h4>Dedicated Employees!</h4>
             <p>
                 If you have any questions, we're here for you.
             </p>
         </div>
         <div class="col-12 col-md-4">
-            <img src="https://via.placeholder.com/150" alt="Placeholder" id="graphql-image">
+            <img src="https://res.cloudinary.com/dvavaunrm/image/upload/c_scale,h_150,w_150/v1634771598/pexels-pixabay-164634_ipgr7h.jpg" alt="Placeholder" id="graphql-image">
             <h4>Best Cars Around!</h4>
             <p>
                 New cars on the lot everyday!
             </p>
         </div>
         <div class="col-12 col-md-4">
-            <img src="https://via.placeholder.com/150" alt="Placeholder" id="database-image">
+            <img src="https://res.cloudinary.com/dvavaunrm/image/upload/c_scale,h_150,w_150/v1634771599/pexels-sourav-mishra-1149831_sn1u9u.jpg" alt="Placeholder" id="database-image">
             <h4>Backed by the best Warranty!</h4>
             <p>
                 Unmatched Warranties.
@@ -53,7 +67,7 @@
     <!-- Start of Community -->
     <section class="row">
         <div class="col-12 col-md-6">
-            <img src="https://via.placeholder.com/150" alt="Placeholder" id="drone-image">
+            <img src="https://res.cloudinary.com/dvavaunrm/image/upload/c_scale,h_300,w_300/v1634773709/pexels-sk-9403687_qz8v8a.jpg" alt="Placeholder" id="drone-image">
         </div>
         <div class="col-12 col-md-6">
             <h4>Community backed Service</h4>
@@ -70,7 +84,7 @@
     <!-- Start of footer -->
     <footer class="row" id="footer">
         <div class="col-2 col-md-2">
-            <img src="https://via.placeholder.com/150" alt="Placeholder" id="footer-logo">
+            <img src="https://res.cloudinary.com/dvavaunrm/image/upload/c_scale,h_250,w_150/v1634773870/pexels-sourav-mishra-1231643_x3ww8v.jpg" alt="Placeholder" id="footer-logo">
         </div>
 
         <div class="col-2 col-md-2">

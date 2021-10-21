@@ -11,42 +11,42 @@
 <title>Car Inventory</title>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-          <a class="navbar-brand" href="{{ url_for('site.home') }}">Car Inventory</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{ url_for('site.home') }}">Home</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('site.cars') }}">Cars</a>
-              </li>
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  User Portal
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="{{ url_for('auth.signup') }}">Sign Up</a></li>
-                  <li><a class="dropdown-item" href="{{ url_for('auth.signin') }}">Sign In</a></li>
-                  <li><a class="dropdown-item" href="#">Log Out</a></li>
-              </ul>
-              </li>
-          </ul>
-          </div>
-      </div>
+    <nav class="ct-nav">
+        <div>
+            <a href="{{ url_for('site.home') }}">
+                <img src="https://res.cloudinary.com/dvavaunrm/image/upload/c_scale,h_500,w_500/v1634774395/Coding_Drones_Logo_ft0p8l.png" alt="Logo">
+            </a>
+            
+        </div>
+        <div>
+            <ul id="horizontal-list">
+                <a href="{{ url_for('site.home') }}">
+                    <li>Car Inventory Project</li>
+                </a>
+                <a href="">
+                    <li>Donate</li>
+                </a>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('site.profile') }}">
+                        <li>Profile</li>
+                    </a>
+                    <a href="{{ url_for('auth.logout') }}">
+                        <li>Log out</li>
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('auth.signin') }}">
+                        <li>Sign In</li>
+                    </a>
+                    <a href="{{ url_for('auth.signup') }}">
+                        <li>Sign Up Free</li>
+                    </a>
+                {% endif %}
+            </ul>
+        </div>
     </nav>
-
-
-    {% block content %}
-
-    {% endblock content %}
-
     
+    {% block content %}
+    {% endblock content %}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>

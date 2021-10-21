@@ -1,17 +1,23 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import LoginManager, UserMixin
+
 import uuid
-
-
-from werkzeug.security import generate_password_hash
-
-
 import secrets
 
-db = SQLAlchemy()
 
-class User(db.Model):
+db = SQLAlchemy()
+login_manager = LoginManager()
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
+
+
+class User(db.Model, UserMixin):
     id = db.Column(db.String, primary_key = True)
     email = db.Column(db.String(150), nullable = False)
     password = db.Column(db.String, nullable = True)
