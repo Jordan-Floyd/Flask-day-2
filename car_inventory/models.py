@@ -56,7 +56,7 @@ class Car(db.Model):
 
 
 
-    def __init__(self, make, model, color, max_speed, doors, horsepower, user_token, id = ''):
+    def __init__(self, make, model, color, max_speed, doors, horsepower, user_token, id = ' '):
         self.id = self.set_id()
         self.make = make
         self.model = model
@@ -67,7 +67,7 @@ class Car(db.Model):
         self.user_token = user_token
 
     def set_id(self):
-        return (secrets.token_urlsafe)
+        return (secrets.token_urlsafe())
 
 
 

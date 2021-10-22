@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from car_inventory.helpers import token_required
-from car_inventory.models import  Car, db, car_schema, cars_schema
+from car_inventory.models import Car, db, car_schema, cars_schema
 
 api = Blueprint('api', __name__, url_prefix = '/api')
 
@@ -40,7 +40,7 @@ def get_cars(current_user_token):
 
 
 
-@api.route('/drones/<id>', methods = ['GET'])
+@api.route('/cars/<id>', methods = ['GET'])
 @token_required
 
 def get_car(current_user_token, id):
