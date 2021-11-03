@@ -1,7 +1,7 @@
 from functools import wraps
 import secrets
 from flask import request, jsonify
-from car_inventory.models import User, Car
+from car_inventory.models import User
 
 
 
